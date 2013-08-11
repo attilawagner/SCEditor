@@ -1,3 +1,45 @@
+Version 1.4.4:
+	Fixed height auto expanding when resized.
+		- Thanks to @TimWardC3 for reporting
+	Fixed emoticons with greater than (>) not being converted.
+		- Thanks to @imansa for reporting.
+	Improved emoticonsCompat support so emoticons are converted to text if whitespace is removed.
+		- Thanks to @ostinelli for reporting
+	Fixed bug causing spaces to not be inserted when an emoticon is inserted in emoticonsCompat mode.
+		- Thanks to @ostinelli for reporting
+	Fixed bug with toolbar not being removed by destroy() when in a custom toolbarContainer.
+		- Thanks to @imansa for reporting.
+	Added currentBlockNode() method.
+	Improved multiline lists in source mode.
+		- Thanks to @liamdawe for reporting.
+	Improve theme compatibility.
+	Fixed issue with iOS not breaking long words.
+		- Thanks to Francesco for reporting.
+	Fixed bug with IE not releasing focus when autoUpdate is enabled.
+		- Thanks to @LeeMcNeil for reporting.
+	Improved IE range handling.
+	Fixed IE height bug where blur() method increased the editors height.
+	Fixed IE6/7 bug where there was a 2px height difference between WYSIWYG and source modes.
+	Fixed new line auto appending after code/quote blocks not working.
+		- Thanks to @Dr1ks for reporting.
+	Fixed issue with Opera adding blank lines.
+		- Thanks to @Dr1ks for reporting.
+	Improved unlink to remove links without selecing the whole link.
+		- Thanks to @liamdawe for reporting.
+	Fixed newline after [quote] being stripped.
+		- Thanks to @liamdawe for reporting.
+	Fixed IE bug loading initially loading shorthand colors.
+		- Thanks to @Olive140 for reporting.
+	Added bbcodeTrim option.
+	Fixed bug with stripWhiteSpace and saved ranges causing a space after the caret to be removed.
+	Added spellcheck option to disable the browsers built in spellchecker.
+	Added ability to remove block level elements by placing the cursor at the start of them and
+		pressing backspace.
+	Added Greek translation.
+		- Thanks to Nikos Aggelis for translating.
+	Improved insert and pasting to scroll to after the inserted/pasted content.
+	Fixed bug with emoticons sometimes getting converted in code blocks.
+
 Version 1.4.3:
 	Added css() method which allows getting/setting inline CSS for the WYSIWYG editor.
 	Added Simplified Chinese translation.

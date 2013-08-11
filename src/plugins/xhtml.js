@@ -1,4 +1,3 @@
-/*!pl SCEditor | (C) 2011-2013, Sam Clarke | sceditor.com/license */
 /**
  * SCEditor XHTML Plugin
  * http://www.sceditor.com/
@@ -9,7 +8,6 @@
  *	http://www.opensource.org/licenses/mit-license.php
  *
  * @author Sam Clarke
- * @version 1.4.2
  * @requires jQuery
  */
 
@@ -517,40 +515,10 @@
 		};
 
 		/**
-		 * Converts a tags name to the name specified
-		 *
-		 * @param  {Node} elm
-		 * @param  {String} newtagName
-		 * @return {Node} The new node
-		 * @memberOf jQuery.sceditor.plugins.xhtml.prototype
+		 * Deprecated, use $.sceditor.dom.convertElement() instead.
+		 * @deprecated
 		 */
-		base.convertTagTo = function(elm, newtagName) {
-			var	child, attr,
-				i      = elm.attributes.length,
-				newTag = elm.ownerDocument.createElement(newtagName);
-
-			while(i--)
-			{
-				attr = elm.attributes[i];
-
-				// IE < 8 returns all possible attribtues, not just specified ones
-				if(!$.sceditor.ie || attr.specified)
-				{
-					// IE < 8 doesn't return the CSS for the style attribute
-					if($.sceditor.ie < 8 && /style/i.test(attr.name))
-						elm.style.cssText = elm.style.cssText;
-					else
-						newTag.setAttribute(attr.name, attr.value);
-				}
-			}
-
-			while((child = elm.firstChild))
-				newTag.appendChild(child);
-
-			elm.parentNode.replaceChild(newTag, elm);
-
-			return newTag;
-		};
+		base.convertTagTo = $.sceditor.dom.convertElement;
 
 		/**
 		 * Runs all converters for the specified tagName
@@ -679,8 +647,9 @@
 
 				if(remove)
 				{
-					while(!empty && node.firstChild)
-						parentNode.insertBefore(node.firstChild, node);
+					// Insert all the childen after node
+					while(!empty && node.lastChild)
+						parentNode.insertBefore(node.lastChild, node.nextSibling);
 
 					parentNode.removeChild(node);
 				}
